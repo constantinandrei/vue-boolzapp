@@ -56,3 +56,7 @@
     aspect-ratio: 1 / 1;
 
 }
+
+.contact-list {
+    min-height: 100%;
+}
