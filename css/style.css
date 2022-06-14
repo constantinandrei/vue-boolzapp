@@ -40,3 +40,19 @@
 .user-icon-container img {
     width: 50px;
 }
+
+.top-menu-icon-container {
+    font-size: 23px;
+    color: gray;
+    cursor: pointer;
+}
+
+.sistem-alert-icon {
+    font-size: 27px;
+    color: #8EDAFC;
+    background-color: white;
+    border-radius: 50%;
+    width: 50px;
+    aspect-ratio: 1 / 1;
+
+}
