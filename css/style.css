@@ -1,0 +1,42 @@
+
+#app {
+    background-color: #EAEAEA;
+}
+
+.bg-div-1, .bg-div-2 {
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+
+.bg-div-1 {
+    top: 0;
+    height: 20vh;
+    background-color: #2E9688;
+}
+
+.bg-div-2 {
+    bottom: 0;
+    height: 80vh;
+    background-color: #D8DBD7;
+}
+
+.my-app-container {
+    padding: 16px 0;
+    max-width: 1350px;
+    margin: 0 auto;
+    height: 100vh;
+    position: relative;
+}
+
+.sistem-alert {
+    background-color: #8EDAFC;
+}
+
+.contact-list {
+    background-color: #FFFFFF;
+}
+
+.user-icon-container img {
+    width: 50px;
+}
