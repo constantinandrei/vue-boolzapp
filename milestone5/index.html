@@ -81,6 +81,9 @@
                                     <i class="fa-solid fa-magnifying-glass"></i>
                                 </span>
                                 <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat" v-model="currentSearch">
+                                <span  class="input-group-text" @click="removeCurrentSearch()">
+                                    <i class="fa-solid fa-xmark"></i>
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -98,12 +101,12 @@
                                         <div class="contact-name">
                                             {{ contact.name }}
                                         </div>
-                                        <div class="contact-last-message fs-6 text-muted">
+                                        <div v-if="contact.messages.length > 0" class="contact-last-message fs-6 text-muted">
                                             {{contact.messages.at(-1).message}}
                                         </div>
                                     </div>
         
-                                    <div class="user-last-message d-flex align-self-start text-muted justify-content-end pe-2 py-1">
+                                    <div v-if="contact.messages.length > 0" class="user-last-message d-flex align-self-start text-muted justify-content-end pe-2 py-1">
                                         {{contact.messages.at(-1).date}}
                                     </div>
                                 </div>
@@ -150,8 +153,8 @@
                     <div class="col flex-grow-1 overflow-auto h-100">
                         <div class="contact-messages overflow-auto h-100 px-3">
                             <div v-if="this.activeContact !== undefined" class="1if">
-                                <div v-if="thereAreMessages" class="2if">
-                                    <div v-if="thereAreMessages" v-for="message in activeContact.messages" class="message-container" :class="{'message-container-sent': message.status === 'sent'}">
+                                <div v-if="activeContact.messages.length > 0" class="2if">
+                                    <div v-for="message in activeContact.messages" class="message-container" :class="{'message-container-sent': message.status === 'sent'}">
                                         <div class="message position-relative" :class="{'message-sent': message.status === 'sent', 'message-received': message.status === 'received'}">
                                             <div class="message-text">
                                                 {{message.message}}

@@ -179,10 +179,8 @@ new Vue ({
     data: {
         contacts: contatti,
         activeContact: undefined,
-        actualMessage: null,
         currentIndex: undefined,
         currentSearch: undefined,
-        thereAreMessages: true
     },
 
     methods: {
@@ -225,15 +223,16 @@ new Vue ({
         },
 
         deleteMessage(toRemove){
-            if (this.activeContact.messages.length === 1){
-                this.thereAreMessages = false
-            }
             const searchMessageIndex = this.activeContact.messages.findIndex(object => {
                 return object.message == toRemove.message;
             })
 
             this.activeContact.messages.splice(searchMessageIndex, 1)
             
+        },
+
+        removeCurrentSearch(){
+            this.currentSearch = null
         }
     }
 })
