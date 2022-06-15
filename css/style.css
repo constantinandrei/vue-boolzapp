@@ -37,6 +37,10 @@
     background-color: #FFFFFF;
 }
 
+.contact-active {
+    background-color: #E9EBEB;
+}
+
 .user-icon-container img {
     width: 50px;
 }
@@ -59,4 +63,50 @@
 
 .contact-list {
     min-height: 100%;
+}
+
+.contact-messages {
+    background-image: url('../img/mine.jpg');
+}
+
+.new-message-icons {
+    font-size: 20px;
+    flex-shrink: 0;
+    padding: 1rem 2rem;
+    cursor: pointer;
+}
+
+.message-container {
+    padding: .3rem 2rem;
+}
+
+.message-container-sent {
+    text-align: right;
+}
+
+.message {
+    display: inline-block;
+    min-width: 40%;
+    max-width: 70%;
+    border-radius: 10px;
+    text-align: left;
+}
+
+.message-sent {
+    background-color: #D5F9BA;
+}
+
+.message-recieved {
+    background-color: #FFFFFF;
+}
+
+.message-text {
+    font-size: .8rem;
+    padding: .4rem .4rem .1rem .6rem;
+}
+
+.message-date {
+    font-size: .6rem;
+    text-align: right;
+    padding: 0 .4rem .3rem 0;
 }
