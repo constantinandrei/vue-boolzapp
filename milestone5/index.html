@@ -86,8 +86,8 @@
                     <!-- Contacts List -->
                     <div class="col flex-grow-1 overflow-auto h-100">
                         <div class="contact-list overflow-auto h-100">
-                            <div class="col flex-shrink-0 flex-grow-0" v-for="(contact, i) in contacts" @click="setActiveUser(contact)">
-                                <div v-if="searchContacts(contact)" class="user-info d-flex align-items-center justify-content-between border pt-2 position-relative">
+                            <div class="col flex-shrink-0 flex-grow-0" v-for="(contact, i) in contacts" @click="setActiveUser(contact, i)">
+                                <div v-if="searchContacts(contact)" class="user-info d-flex align-items-center justify-content-between border pt-2 position-relative" :class="{'contact-active': i === currentIndex}">
                                     <div class="user-icon-container d-flex align-items-center justifiy-content-center p-2">
                                         <img :src="`../img/avatar${contact.avatar}.jpg`" alt="" class="rounded-circle">
                                     </div>
