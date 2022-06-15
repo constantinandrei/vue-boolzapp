@@ -181,7 +181,8 @@ new Vue ({
         activeContact: undefined,
         actualMessage: null,
         currentIndex: undefined,
-        currentSearch: undefined
+        currentSearch: undefined,
+        thereAreMessages: true
     },
 
     methods: {
@@ -221,6 +222,18 @@ new Vue ({
             const lowerSearch = this.currentSearch.toLowerCase();
 
             return lowerName.includes(lowerSearch)
+        },
+
+        deleteMessage(toRemove){
+            if (this.activeContact.messages.length === 1){
+                this.thereAreMessages = false
+            }
+            const searchMessageIndex = this.activeContact.messages.findIndex(object => {
+                return object.message == toRemove.message;
+            })
+
+            this.activeContact.messages.splice(searchMessageIndex, 1)
+            
         }
     }
 })

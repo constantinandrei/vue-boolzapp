@@ -126,3 +126,25 @@
     padding: 0 .4rem .3rem 0;
 }
 
+.my-dropdown {
+    position: absolute;
+    padding: .3rem .7rem;
+    right: 0;
+    top: 0;
+    font-size: .8rem;
+    cursor: pointer;
+}
+
+.message-container:not(:hover) .my-dropdown-toggle {
+    opacity: 0;
+}
+
+.my-dropdown .btn:hover {
+    border: none;
+    color: none;
+}
+
+.my-dropdown .dropdown-menu{
+    font-size: .8rem;
+}
+
