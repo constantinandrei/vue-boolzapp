@@ -172,6 +172,7 @@ const contatti = [
     },
 ];
 
+// @ts-ignore
 new Vue ({
     el: '#app',
 
