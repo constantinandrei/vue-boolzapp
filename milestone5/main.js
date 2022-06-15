@@ -192,7 +192,8 @@ new Vue ({
 
         sendMessage(message){
             this.activeContact.messages.push({
-                date: 'adesso',
+                // @ts-ignore
+                date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
                 message: message,
                 status: "sent"
             })
@@ -203,7 +204,8 @@ new Vue ({
 
             setTimeout(()=>{
                 this.contacts[indexToPush].messages.push({
-                    date: 'adesso',
+                    // @ts-ignore
+                    date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
                     message: 'Ok!!',
                     status: "received"
                 })
