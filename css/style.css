@@ -45,6 +45,17 @@
     width: 50px;
 }
 
+.user-info {
+    cursor: pointer;
+}
+
+.user-last-message {
+    font-size: .5rem;
+    position: absolute;
+    right: 5px;
+    top: 5px
+}
+
 .top-menu-icon-container {
     font-size: 23px;
     color: gray;
@@ -96,7 +107,7 @@
     background-color: #D5F9BA;
 }
 
-.message-recieved {
+.message-received {
     background-color: #FFFFFF;
 }
 
