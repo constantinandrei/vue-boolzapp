@@ -262,6 +262,16 @@ new Vue ({
 
         deleteMessages(){
             this.activeContact.messages = []
+        },
+
+        deleteContact(contact){
+            this.contacts = this.contacts.filter(element => {
+                if (element.avatar !== contact.avatar){
+                    return true
+                }
+            });
+
+            this.activeContact = undefined
         }
 
     }
