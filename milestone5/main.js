@@ -179,15 +179,13 @@ new Vue ({
     data: {
         contacts: contatti,
         activeContact: undefined,
-        currentIndex: undefined,
         currentSearch: undefined,
         actualMessage: undefined
     },
 
     methods: {
-        setActiveUser(contact, index){
+        setActiveUser(contact){
             this.activeContact = contact;
-            this.currentIndex = index
         },
 
         sendMessage(message){
@@ -200,10 +198,10 @@ new Vue ({
 
             this.actualMessage = null;
 
-            const indexToPush = this.currentIndex
+            const contactToPush = this.activeContact
 
             setTimeout(()=>{
-                this.contacts[indexToPush].messages.push({
+                contactToPush.messages.push({
                     // @ts-ignore
                     date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
                     message: 'Ok!!',
