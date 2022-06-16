@@ -187,11 +187,14 @@ new Vue ({
     methods: {
         setActiveUser(contact){
             this.activeContact = contact;
+            if (!this.activeContact.hasOwnProperty('lastOnline')){
+                this.activeContact.lastOnline = contact.messages.filter(message=>message.status === 'received').at(-1).date
+            }
         },
 
         sendMessage(message){
 
-            if (message === ''){
+            if (message.trim() === ''){
                 return
             }
             this.activeContact.messages.push({
@@ -256,6 +259,10 @@ new Vue ({
         printOnlyHour(string){
             return string.slice(11)
         },
+
+        deleteMessages(){
+            this.activeContact.messages = []
+        }
 
     }
 })
