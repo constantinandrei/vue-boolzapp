@@ -212,15 +212,19 @@ new Vue ({
             }, 1000)
         },
 
-        searchContacts(contact){
-            if (this.currentSearch == null || this.currentSearch == undefined){
-                return true;
-            }
+        returnFilterContacts(){
 
-            const lowerName = contact.name.toLowerCase();
-            const lowerSearch = this.currentSearch.toLowerCase();
+            if (this.currentSearch == null || this.currentSearch == undefined){
+                return this.contacts
+            }
+            return this.contacts.filter((contact)=> {
+                const lowerName = contact.name.toLowerCase();
+                const lowerSearch = this.currentSearch.toLowerCase();
 
             return lowerName.includes(lowerSearch)
+            })
+
+        
         },
 
         deleteMessage(toRemove){

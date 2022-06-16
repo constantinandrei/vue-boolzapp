@@ -91,26 +91,28 @@
                     <!-- Contacts List -->
                     <div class="col flex-grow-1 overflow-auto h-100">
                         <div class="contact-list overflow-auto h-100">
-                            <div class="col flex-shrink-0 flex-grow-0" v-for="(contact, i) in contacts" @click="setActiveUser(contact, i)">
-                                <div v-if="searchContacts(contact)" class="user-info d-flex align-items-center justify-content-between border pt-2 position-relative" :class="{'contact-active': i === currentIndex}">
-                                    <div class="user-icon-container d-flex align-items-center justifiy-content-center p-2">
-                                        <img :src="`../img/avatar${contact.avatar}.jpg`" alt="" class="rounded-circle">
-                                    </div>
-
-                                    <div class="contact-detail d-flex flex-column flex-grow-1 px-2 py-1 align-self-start">
-                                        <div class="contact-name">
-                                            {{ contact.name }}
+                            <template v-if="returnFilterContacts">
+                                <div class="col flex-shrink-0 flex-grow-0" v-for="(contact, i) in returnFilterContacts()" @click="setActiveUser(contact, i)">
+                                    <div class="user-info d-flex align-items-center justify-content-between border pt-2 position-relative" :class="{'contact-active': activeContact && contact.avatar === activeContact.avatar}">
+                                        <div class="user-icon-container d-flex align-items-center justifiy-content-center p-2">
+                                            <img :src="`../img/avatar${contact.avatar}.jpg`" alt="" class="rounded-circle">
                                         </div>
-                                        <div v-if="contact.messages.length > 0" class="contact-last-message fs-6 text-muted">
-                                            {{contact.messages.at(-1).message}}
+    
+                                        <div class="contact-detail d-flex flex-column flex-grow-1 px-2 py-1 align-self-start">
+                                            <div class="contact-name">
+                                                {{ contact.name }}
+                                            </div>
+                                            <div v-if="contact.messages.length > 0" class="contact-last-message fs-6 text-muted">
+                                                {{contact.messages.at(-1).message}}
+                                            </div>
                                         </div>
-                                    </div>
-        
-                                    <div v-if="contact.messages.length > 0" class="user-last-message d-flex align-self-start text-muted justify-content-end pe-2 py-1">
-                                        {{printOnlyHour(contact.messages.at(-1).date)}}
+            
+                                        <div v-if="contact.messages.length > 0" class="user-last-message d-flex align-self-start text-muted justify-content-end pe-2 py-1">
+                                            {{printOnlyHour(contact.messages.at(-1).date)}}
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </template>
                         </div>
                     </div>
                 </div>
@@ -121,7 +123,7 @@
                     <div v-if="this.activeContact" class="col flex-shrink-0 flex-grow-0">
                         <div class="user-info d-flex align-items-center justify-content-between border">
                             <div class="user-icon-container d-flex align-items-center justifiy-content-center p-2">
-                                <img src="../img/avatar_1.jpg" alt="" class="rounded-circle">
+                                <img :src="`../img/avatar${activeContact.avatar}.jpg`" alt="" class="rounded-circle">
                             </div>
 
                             <div class="contact-detail d-flex flex-column flex-grow-1 px-2">
