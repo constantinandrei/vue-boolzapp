@@ -107,7 +107,7 @@
                                     </div>
         
                                     <div v-if="contact.messages.length > 0" class="user-last-message d-flex align-self-start text-muted justify-content-end pe-2 py-1">
-                                        {{contact.messages.at(-1).date}}
+                                        {{printOnlyHour(contact.messages.at(-1).date)}}
                                     </div>
                                 </div>
                             </div>
@@ -160,7 +160,7 @@
                                                 {{message.message}}
                                             </div>
                                             <div class="message-date">
-                                                {{message.date}}
+                                                {{printOnlyHour(message.date)}}
                                             </div>
                                             <div class="my-dropdown">
                                                 <div class="my-dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">

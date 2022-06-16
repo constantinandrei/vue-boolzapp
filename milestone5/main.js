@@ -181,6 +181,7 @@ new Vue ({
         activeContact: undefined,
         currentIndex: undefined,
         currentSearch: undefined,
+        actualMessage: undefined
     },
 
     methods: {
@@ -233,6 +234,10 @@ new Vue ({
 
         removeCurrentSearch(){
             this.currentSearch = null
+        },
+
+        printOnlyHour(string){
+            return string.slice(11, 16)
         }
     }
 })
