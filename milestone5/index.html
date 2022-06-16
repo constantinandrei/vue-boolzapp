@@ -131,9 +131,9 @@
                                     {{this.activeContact.name}}
                                 </div>
                                 <div class="contact-last-message fs-6 text-muted">
-                                    Ultimo accesso
 
-                                    {{activeContact.lastOnline ? activeContact.lastOnline : activeContact.messages.filter(message=>message.status === 'received').at(-1).date}}
+                                    <span v-if="!isTyping"> Ultimo accesso {{activeContact.lastOnline ? activeContact.lastOnline : activeContact.messages.filter(message=>message.status === 'received').at(-1).date}}</span>
+                                    <span v-else>{{isTyping}}</span>
                                 </div>
                             </div>
 

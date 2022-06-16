@@ -180,7 +180,8 @@ new Vue ({
         contacts: contatti,
         activeContact: undefined,
         currentSearch: undefined,
-        actualMessage: ''
+        actualMessage: '',
+        isTyping : false,
     },
 
     methods: {
@@ -200,6 +201,7 @@ new Vue ({
                 status: "sent"
             })
 
+            this.isTyping = 'Sta scrivendo...';
             this.actualMessage = '';
 
             const contactToPush = this.activeContact
@@ -210,7 +212,15 @@ new Vue ({
                     date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
                     message: 'Ok!!',
                     status: "received"
-                })
+                });
+
+                this.isTyping = 'Online';
+
+                setTimeout(()=>{
+                    this.isTyping = false;
+                    // @ts-ignore
+                    this.activeContact.lastOnLine = datejs().format('DD/MM/YYYY HH:mm:ss')
+                }, 2000)
             }, 1000)
         },
 
@@ -243,7 +253,8 @@ new Vue ({
         },
 
         printOnlyHour(string){
-            return string.slice(11, 16)
-        }
+            return string.slice(11)
+        },
+
     }
 })
