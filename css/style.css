@@ -135,13 +135,8 @@
     cursor: pointer;
 }
 
-.message-container:not(:hover) .my-dropdown-toggle {
+.message.position-relative:not(:hover) .my-dropdown-toggle {
     opacity: 0;
-}
-
-.my-dropdown .btn:hover {
-    border: none;
-    color: none;
 }
 
 .my-dropdown .dropdown-menu{

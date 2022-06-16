@@ -224,7 +224,7 @@ new Vue ({
 
         deleteMessage(toRemove){
             const searchMessageIndex = this.activeContact.messages.findIndex(object => {
-                return object.message == toRemove.message;
+                return object.date == toRemove.date;
             })
 
             this.activeContact.messages.splice(searchMessageIndex, 1)
