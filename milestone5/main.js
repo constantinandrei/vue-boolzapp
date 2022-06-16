@@ -180,7 +180,7 @@ new Vue ({
         contacts: contatti,
         activeContact: undefined,
         currentSearch: undefined,
-        actualMessage: undefined
+        actualMessage: ''
     },
 
     methods: {
@@ -189,6 +189,10 @@ new Vue ({
         },
 
         sendMessage(message){
+
+            if (message === ''){
+                return
+            }
             this.activeContact.messages.push({
                 // @ts-ignore
                 date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
@@ -196,7 +200,7 @@ new Vue ({
                 status: "sent"
             })
 
-            this.actualMessage = null;
+            this.actualMessage = '';
 
             const contactToPush = this.activeContact
 

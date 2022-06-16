@@ -197,8 +197,11 @@
                                 <input type="text" class="form-control" placeholder="Scrivi un messaggio" v-model="actualMessage" @keyup.enter="sendMessage(actualMessage)">
                             </div>
 
-                            <div class="new-message-icons text-muted">
+                            <div v-if="actualMessage === ''" class="new-message-icons text-muted">
                                 <i class="fa-solid fa-microphone"></i>
+                            </div>
+                            <div v-else class="new-message-icons text-muted" @click="sendMessage(actualMessage)">
+                                <i class="fa-solid fa-paper-plane"></i>
                             </div>
                         </div>
                     </div>
