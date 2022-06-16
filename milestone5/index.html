@@ -132,7 +132,7 @@
                                 </div>
                                 <div class="contact-last-message fs-6 text-muted">
 
-                                    <span v-if="!isTyping"> Ultimo accesso {{activeContact.lastOnline ? activeContact.lastOnline : activeContact.messages.filter(message=>message.status === 'received').at(-1).date}}</span>
+                                    <span v-if="!isTyping"> Ultimo accesso {{activeContact.lastOnline ? activeContact.lastOnline.slice(11) : activeContact.messages.filter(message=>message.status === 'received').at(-1).date.slice(11)}}</span>
                                     <span v-else>{{isTyping}}</span>
                                 </div>
                             </div>
