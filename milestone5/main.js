@@ -215,13 +215,14 @@ new Vue ({
                 });
 
                 this.isTyping = 'Online';
-
-                setTimeout(()=>{
-                    this.isTyping = false;
-                    // @ts-ignore
-                    this.activeContact.lastOnLine = datejs().format('DD/MM/YYYY HH:mm:ss')
-                }, 2000)
             }, 1000)
+
+            setTimeout(()=>{
+                this.isTyping = false;
+                // @ts-ignore
+                this.activeContact.lastOnline = dayjs().format('DD/MM/YYYY HH:mm:ss')
+                
+            }, 3000)
         },
 
         returnFilterContacts(){
